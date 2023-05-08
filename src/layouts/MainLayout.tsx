@@ -14,9 +14,10 @@ const sourceSansPro = Source_Sans_Pro({
 
 interface MainLayoutProps {
   children: React.ReactNode;
+  activeButton: "Home" | "About" | "News"  
 }
 
-export function MainLayout({ children }: MainLayoutProps) {
+export function MainLayout({ children, activeButton}: MainLayoutProps) {
   const anos = useMemo(
     () => [
       "2023",
@@ -37,8 +38,8 @@ export function MainLayout({ children }: MainLayoutProps) {
     <div className={sourceSansPro.className}>
       <div className="h-screen flex">
         <div className="flex flex-1">
-          <Navbar/>
-          <aside className="w-[33.875rem] bg-[#4AA381] pl-12 pr-9 pt-12 flex flex-col gap-y-[2.6175rem] relative overflow-hidden">
+          <Navbar activeButton={activeButton}/>
+          <aside className="hidden w-[33.875rem] bg-[#4AA381] pl-12 pr-9 pt-12 lg:flex flex-col gap-y-[2.6175rem] relative overflow-hidden ">
             <div className="w-full flex flex-col gap-y-5 ">
               <h1 className="text-white text-5xl font-semibold">
                 Confira as nomeações e exonerações de Alagoas{" "}
@@ -61,9 +62,9 @@ export function MainLayout({ children }: MainLayoutProps) {
               </p>
               <Link
                 href=""
-                className="bg-[#EDDA46] w-[15.125rem] text-center h-[3.625rem] flex items-center rounded-[5.125rem] shadow-md shadow-black/30"
+                className="bg-[#EDDA46] hover:bg-[#dac83f] w-[15.125rem] text-center text-[#376E59] hover:text-[#f3fffa] h-[3.625rem] flex items-center rounded-[5.125rem] shadow-md shadow-black/30 "
               >
-                <span className="w-full text-[#376E59] font-normal">
+                <span className="w-full   font-normal">
                   Sobre o projeto
                 </span>
               </Link>
@@ -81,7 +82,7 @@ export function MainLayout({ children }: MainLayoutProps) {
             ></Image>
           </aside>
         </div>
-        <main className="bg-[#F5F7FB] w-full overflow-y-auto px-[2.875rem] pt-[3.25rem] pb-6">
+        <main className="bg-[#F5F7FB]  w-full overflow-y-auto px-[2.875rem] pt-[3.25rem] pb-6 ">
           {children}
         </main>
       </div>
