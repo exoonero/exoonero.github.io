@@ -14,7 +14,7 @@ export default function Home() {
             <select className="h-[4.125rem] w-[11.43rem] text-center rounded-2xl text-[1.18rem] ">
                 <option value="geral" selected className="font-normal">Todos os anos</option>
             {
-                anos.map((e)=> <option value={e}>{e}</option>)    
+                anos.map((e)=> <option key={e} value={e}>{e}</option>)    
             }
             </select>
         </header>
