@@ -43,7 +43,7 @@ export function MainLayout({ children, activeButton}: MainLayoutProps) {
                 Confira as nomeações e exonerações de Alagoas
               </h1>
               <div className="flex gap-x-3 items-center">
-                <Image
+                <img
                   src={"/img-profiles.png"}
                   alt={""}
                   className="min-[1792px]:w-[7.56rem] lg:w-[6.301rem] min-[1792px]:h-[2.31rem] lg:h-[1.92rem]"
@@ -75,7 +75,7 @@ export function MainLayout({ children, activeButton}: MainLayoutProps) {
             </div>
             <img
               className="absolute min-[1792px]:max-w-none lg:-bottom-[18rem] md:-bottom-[200rem] lg:scale-75 xl:-bottom-[22rem] xl:scale-75 min-[1792px]:scale-100 min-[1792px]:-bottom-[28rem] left-2 min-[1792px]:-left-[6rem]"
-              src={"/girl-icon.png"}
+              src="/girl-icon.png"
               alt={""}
             />
           </aside>
