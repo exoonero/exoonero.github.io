@@ -6,7 +6,6 @@ const nextConfig = {
     },
     output: 'export',
     trailingSlash: true, 
-    assetPrefix: isProd ? 'https://alex-custodio.github.io/' : undefined,
     basePath: '/exoneraa'
     
 }
