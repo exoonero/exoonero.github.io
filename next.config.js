@@ -5,7 +5,9 @@ const nextConfig = {
         appDir: true
     },
     output: 'export',
-    trailingSlash: true,
+    trailingSlash: true, 
+    assetPrefix: process.env.NEXT_PUBLIC_BASE_PATH | '',
+    basePath: '/exoneraa'
     
 }
 
