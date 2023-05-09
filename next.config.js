@@ -4,7 +4,6 @@ const nextConfig = {
     experimental: {
         appDir: true
     },
-    output: 'export',
     // Use the CDN in production and localhost for development.
     assetPrefix: isProd ? 'https://alex-custodio.github.io/' : undefined,
 }
