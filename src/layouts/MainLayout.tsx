@@ -44,7 +44,7 @@ export function MainLayout({ children, activeButton}: MainLayoutProps) {
               </h1>
               <div className="flex gap-x-3 items-center">
                 <Image
-                  src="https://raw.githubusercontent.com/alex-custodio/exoneraa/main/src/assets/images/img-profiles%402x.png"
+                  src="src/assets/images/girl-icon.png"
                   alt={""}
                   className="min-[1792px]:w-[7.56rem] lg:w-[6.301rem] min-[1792px]:h-[2.31rem] lg:h-[1.92rem]"
                 />
@@ -75,7 +75,7 @@ export function MainLayout({ children, activeButton}: MainLayoutProps) {
             </div>
             <Image
               className="absolute min-[1792px]:max-w-none lg:-bottom-[18rem] md:-bottom-[200rem] lg:scale-75 xl:-bottom-[22rem] xl:scale-75 min-[1792px]:scale-100 min-[1792px]:-bottom-[28rem] left-2 min-[1792px]:-left-[6rem]"
-              src="https://raw.githubusercontent.com/alex-custodio/exoneraa/main/src/assets/images/girl-icon.png"
+              src="https://raw.githubusercontent.com/alex-custodio/exoneraa/main/src/assets/images/creative-commons.png"
               alt={""}
             ></Image>
           </aside>
