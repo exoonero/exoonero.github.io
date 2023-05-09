@@ -5,8 +5,8 @@ const nextConfig = {
         appDir: true
     },
     output: 'export',
-    trailingSlash: true
-    // Use the CDN in production and localhost for development.
+    trailingSlash: true,
+    basePath: '/src/assets/images'
     
 }
 
