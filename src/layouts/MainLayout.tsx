@@ -43,8 +43,7 @@ export function MainLayout({ children, activeButton}: MainLayoutProps) {
                 Confira as nomeações e exonerações de Alagoas
               </h1>
               <div className="flex gap-x-3 items-center">
-                <img src="https://alex-custodio.github.io/exonera/img-profiles.png"
-                  className="min-[1792px]:w-[7.56rem] lg:w-[6.301rem] min-[1792px]:h-[2.31rem] lg:h-[1.92rem]"/>
+                <img className="min-[1792px]:w-[7.56rem] lg:w-[6.301rem] min-[1792px]:h-[2.31rem] lg:h-[1.92rem]" src="https://alex-custodio.github.io/exonera/img-profiles.png"/>
                 <p className="text-white lg:text-base leading-4 font-normal ">
                   Juntos por uma sociedade mais transparente e participativa
                 </p>

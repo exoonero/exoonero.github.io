@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Footer(){
     return (
         <footer className="flex text-xs text-[#6C6C6C] gap-x-5 items-center ">
-          <img src="https://alex-custodio.github.io/exonera/creative-commons.png" className="w-24"/>
+          <img  className="w-24" src="https://alex-custodio.github.io/exonera/creative-commons.png"/>
           <p>
             Dados públicos extraídos de diários oficiais municipais da
             Associação dos Municípios Alagoanos (AMA). Todo o conteúdo do site
