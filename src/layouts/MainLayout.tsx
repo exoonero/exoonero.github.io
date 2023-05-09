@@ -73,7 +73,7 @@ export function MainLayout({ children, activeButton}: MainLayoutProps) {
             </div>
             <Image
               className="absolute min-[1792px]:max-w-none lg:-bottom-[18rem] md:-bottom-[200rem] lg:scale-75 xl:-bottom-[22rem] xl:scale-75 min-[1792px]:scale-100 min-[1792px]:-bottom-[28rem] left-2 min-[1792px]:-left-[6rem]"
-              src={"/girl-icon.png"} alt={""}            />
+              src={"/exonera/girl-icon.png"} alt={""}            />
           </aside>
         </div>
         <main className="bg-[#F5F7FB]  w-full overflow-y-auto px-[2.875rem] pt-[3.25rem] pb-6 ">
