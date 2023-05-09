@@ -44,7 +44,7 @@ export function MainLayout({ children, activeButton}: MainLayoutProps) {
               </h1>
               <div className="flex gap-x-3 items-center">
                 <Image
-                  src="../assets/images/girl-icon.png"
+                  src="./src/assets/images/girl-icon.png"
                   alt={""}
                   className="min-[1792px]:w-[7.56rem] lg:w-[6.301rem] min-[1792px]:h-[2.31rem] lg:h-[1.92rem]"
                 />
