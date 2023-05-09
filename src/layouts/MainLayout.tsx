@@ -35,7 +35,7 @@ export function MainLayout({ children, activeButton}: MainLayoutProps) {
   return (
     <div className={sourceSansPro.className}>
       <div className="h-screen flex">
-        <div className="flex flex-1">
+        <div className="flex flex-1" >
           <Navbar activeButton={activeButton}/>
           <aside className="hidden xl:w-[33.875rem]  bg-[#4AA381] pl-12 pr-9 min-[1792px]:pt-12 lg:pt-10 lg:flex flex-col min-[1792px]:gap-y-[2.6175rem] lg:gap-y-[2.5rem] relative overflow-hidden ">
             <div className="w-full flex flex-col gap-y-3 min-[1792px]:gap-y-5">
