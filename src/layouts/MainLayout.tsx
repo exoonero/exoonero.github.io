@@ -39,7 +39,7 @@ export function MainLayout({ children, activeButton}: MainLayoutProps) {
       <div className="h-screen flex">
         <div className="flex flex-1">
           <Navbar activeButton={activeButton}/>
-          <aside className="hidden min-[1792px]:w-[33.875rem] lg:w-[28.22rem] bg-[#4AA381] pl-12 pr-9 min-[1792px]:pt-12 lg:pt-10 lg:flex flex-col min-[1792px]:gap-y-[2.6175rem] lg:gap-y-[2.5rem] relative overflow-hidden ">
+          <aside className="hidden xl:w-[33.875rem]  bg-[#4AA381] pl-12 pr-9 min-[1792px]:pt-12 lg:pt-10 lg:flex flex-col min-[1792px]:gap-y-[2.6175rem] lg:gap-y-[2.5rem] relative overflow-hidden ">
             <div className="w-full flex flex-col gap-y-3 min-[1792px]:gap-y-5">
               <h1 className="text-white text-5xl lg:text-[2.56rem] font-semibold max-w-[22rem]">
                 Confira as nomeações e exonerações de Alagoas
@@ -76,7 +76,7 @@ export function MainLayout({ children, activeButton}: MainLayoutProps) {
               <OKBRIcon className="lg:w-[11.33rem]"/>
             </div>
             <Image
-              className="absolute min-[1792px]:max-w-none -bottom-[18rem] min-[1792px]:-bottom-[28rem] left-2 min-[1792px]:-left-20"
+              className="absolute min-[1792px]:max-w-none lg:-bottom-[18rem] md:-bottom-[200rem] lg:scale-75 xl:-bottom-[22rem] xl:scale-75 min-[1792px]:-bottom-[28rem] left-2 min-[1792px]:-left-[4rem]"
               src={girlIcon}
               alt={""}
             ></Image>
