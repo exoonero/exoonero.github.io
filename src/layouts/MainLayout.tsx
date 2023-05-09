@@ -1,6 +1,6 @@
 import Navbar from "@/components/Navbar";
 import profiles from "@/assets/images/img-profiles@2x.png";
-import girlIcon from "@/assets/images/girl-icon.png";
+import girlIcon from "../assets/images/girl-icon.png";
 import Image from "next/image";
 import Link from "next/link";
 import OKBRIcon from "@/assets/svgs/okbr-icon";

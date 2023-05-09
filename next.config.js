@@ -6,7 +6,6 @@ const nextConfig = {
     },
     output: 'export',
     trailingSlash: true,
-    basePath: '/src/assets/images'
     
 }
 
