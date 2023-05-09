@@ -1,10 +1,9 @@
 import Image from "next/image";
-import cc from "@/assets/images/creative-commons.png";
 
 export default function Footer(){
     return (
         <footer className="flex text-xs text-[#6C6C6C] gap-x-5 items-center ">
-          <Image src={cc} alt={""} className="w-24"></Image>
+          <Image src="https://github.com/alex-custodio/exoneraa/blob/main/src/assets/images/creative-commons.png" alt={""} className="w-24"></Image>
           <p>
             Dados públicos extraídos de diários oficiais municipais da
             Associação dos Municípios Alagoanos (AMA). Todo o conteúdo do site
