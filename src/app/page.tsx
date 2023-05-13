@@ -20,13 +20,6 @@ export default function Home() {
             }
             </select>
         </header>
-        <main>
-            <div className="flex flex-wrap lg:gap-x-20 2xl:gap-x-[3%] justify-center">
-              <TotalAtos/>
-              <TotalAtos/>
-              <TotalAtos/>
-            </div>
-        </main>
         <Footer/>
       </MainLayout>
     </main>
