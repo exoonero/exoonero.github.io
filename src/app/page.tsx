@@ -1,6 +1,5 @@
 
 import Footer from '@/components/Footer'
-import TotalAtos from '@/components/charts/TotalAtos'
 import { MainLayout } from '@/layouts/MainLayout'
 import { useMemo } from 'react'
 
