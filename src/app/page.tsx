@@ -1,5 +1,6 @@
 
 import Footer from '@/components/Footer'
+import TotalAtos from '@/components/charts/TotalAtos'
 import { MainLayout } from '@/layouts/MainLayout'
 import { useMemo } from 'react'
 
@@ -19,6 +20,13 @@ export default function Home() {
             }
             </select>
         </header>
+        <main>
+            <div className="flex flex-wrap lg:gap-x-20 2xl:gap-x-[3%] justify-center">
+              <TotalAtos/>
+              <TotalAtos/>
+              <TotalAtos/>
+            </div>
+        </main>
         <Footer/>
       </MainLayout>
     </main>
