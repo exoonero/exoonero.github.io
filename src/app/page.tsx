@@ -1,4 +1,6 @@
 
+import Footer from '@/components/Footer'
+import TotalAtos from '@/components/charts/TotalAtos'
 import { MainLayout } from '@/layouts/MainLayout'
 import { useMemo } from 'react'
 
@@ -8,7 +10,7 @@ export default function Home() {
     <main>
       <MainLayout activeButton={'Home'}>
         <header className="flex justify-between flex-col lg:flex-row gap-y-3 ">
-            <h1 className="min-[1792px]:text-[2.4375rem] 2xl:text-3xl text-2xl font-semibold lg:w-[42.93rem] leading-10">
+            <h1 className=" text-2xl 2xl:text-3xl min-[1792px]:text-[2.4375rem]  font-semibold lg:w-[42.93rem] leading-10">
                 Acompanhe as nomeações e exonerações que aconteceram em <span className="text-[#4AA381]">Alagoas</span>
             </h1>
             <select className="h-[4.125rem] w-[11.43rem] text-center rounded-2xl text-[1.18rem] ">
@@ -18,9 +20,14 @@ export default function Home() {
             }
             </select>
         </header>
-        <footer className="">
-            Gráficos
-        </footer>
+        <main>
+            <div className="flex flex-wrap lg:gap-x-20 2xl:gap-x-[3%] justify-center">
+              <TotalAtos/>
+              <TotalAtos/>
+              <TotalAtos/>
+            </div>
+        </main>
+        <Footer/>
       </MainLayout>
     </main>
   )

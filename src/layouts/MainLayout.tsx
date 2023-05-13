@@ -1,5 +1,4 @@
 import Navbar from "@/components/Navbar";
-import Image from "next/image";
 import Link from "next/link";
 import OKBRIcon from "@/assets/svgs/okbr-icon";
 import { useMemo } from "react";
@@ -37,7 +36,7 @@ export function MainLayout({ children, activeButton}: MainLayoutProps) {
       <div className="h-screen flex">
         <div className="flex flex-1" >
           <Navbar activeButton={activeButton}/>
-          <aside className="hidden xl:w-[33.875rem]  bg-[#4AA381] pl-12 pr-9 min-[1792px]:pt-12 lg:pt-10 lg:flex flex-col min-[1792px]:gap-y-[2.6175rem] lg:gap-y-[2.5rem] relative overflow-hidden ">
+          <aside className="hidden xl:w-[28.875rem] min-[1792px]:w-[30rem] bg-[#4AA381] pl-12 pr-9 min-[1792px]:pt-12 lg:pt-10 lg:flex flex-col min-[1792px]:gap-y-[2.6175rem] lg:gap-y-[2.5rem] relative overflow-hidden ">
             <div className="w-full flex flex-col gap-y-3 min-[1792px]:gap-y-5">
               <h1 className="text-white text-5xl lg:text-[2.56rem] font-semibold max-w-[22rem]">
                 Confira as nomeações e exonerações de Alagoas
@@ -70,7 +69,7 @@ export function MainLayout({ children, activeButton}: MainLayoutProps) {
               <OKBRIcon className="lg:w-[11.33rem]"/>
             </div>
             <img
-              className="absolute min-[1792px]:max-w-none lg:-bottom-[18rem] md:-bottom-[200rem] lg:scale-75 xl:-bottom-[22rem] xl:scale-75 min-[1920]:scale-100 min-[1792px]:-bottom-[28rem] left-2 min-[1792px]:-left-[6rem]"
+              className="absolute min-[1792px]:max-w-none lg:-bottom-[18rem] md:-bottom-[200rem] lg:scale-75 xl:-bottom-[19rem] xl:scale-75 min-[1920]:scale-100 min-[1792px]:-bottom-[28rem] left-2 min-[1792px]:-left-[6rem]"
               src="https://alex-custodio.github.io/exonera/girl-icon.png"/>
           </aside>
         </div>
