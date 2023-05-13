@@ -9,7 +9,7 @@ export default function Home() {
     <main>
       <MainLayout activeButton={'Home'}>
         <header className="flex justify-between flex-col lg:flex-row gap-y-3 ">
-            <h1 className=" text-2xl 2xl:text-3xl min-[1792px]:text-[2.4375rem]  font-semibold lg:w-[42.93rem] leading-10">
+            <h1 className=" text-2xl 2xl:text-3xl 3xl:text-[2.4375rem]  font-semibold lg:w-[42.93rem] leading-10">
                 Acompanhe as nomeações e exonerações que aconteceram em <span className="text-[#4AA381]">Alagoas</span>
             </h1>
             <select className="h-[4.125rem] w-[11.43rem] text-center rounded-2xl text-[1.18rem] ">
