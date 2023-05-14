@@ -103,7 +103,7 @@ export default function Sobre() {
           </p>
         </section>
         <div className="flex text-xs text-[#6C6C6C] gap-x-10 items-center">
-          <LogoGreenExonera className="scale-125 w-24 ml-6" />
+          <LogoGreenExonera className="scale-125 w-[12rem] 2xl:w-24 ml-6" />
           <p>
             O nome do projeto “exoonero” nasce do trocadilho formado entre as
             palavras “Exo”, de exoneração, e “onero”, de algo que “onera” os
