@@ -2,10 +2,15 @@
 import Footer from '@/components/Footer'
 import TotalAtos from '@/components/charts/TotalAtos'
 import { MainLayout } from '@/layouts/MainLayout'
+import { useRouter } from 'next/router'
 import { useMemo } from 'react'
 
 export default function Home() {
   const anos = useMemo(()=>["2023", "2022", "2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014"],[])
+  const router = useRouter()
+  if (router.isFallback) {
+      return <div>Carregando...</div>
+  }
   return (
     <main>
       <MainLayout activeButton={'Home'}>
