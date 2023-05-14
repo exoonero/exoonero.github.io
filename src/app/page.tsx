@@ -1,11 +1,14 @@
-
+"use client";
 import Footer from '@/components/Footer'
+import CidadesExoneracao from '@/components/charts/CidadesExoneracao';
+import CidadesNomeacao from '@/components/charts/CidadesNomeacao';
 import TotalAtos from '@/components/charts/TotalAtos'
 import { MainLayout } from '@/layouts/MainLayout'
-import { useMemo } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 
 export default function Home() {
-  const anos = useMemo(()=>["2023", "2022", "2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014"],[])
+  const anos = useMemo(()=>["2023", "2022", "2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014"],[]);
+  
   
   return (
     <main>
@@ -14,18 +17,21 @@ export default function Home() {
             <h1 className=" text-2xl 2xl:text-3xl 3xl:text-[2.4375rem]  font-semibold lg:w-[42.93rem] leading-10">
                 Acompanhe as nomeações e exonerações que aconteceram em <span className="text-[#4AA381]">Alagoas</span>
             </h1>
-            <select className="h-[4.125rem] w-[11.43rem] text-center rounded-2xl text-[1.18rem] ">
-                <option value="geral" selected className="font-normal">Todos os anos</option>
+            <select className="h-[4.125rem] w-[11.43rem] text-center rounded-2xl text-[1.18rem]">
+                <option value="todos" selected className="font-normal">Todos os anos</option>
             {
                 anos.map((e)=> <option key={e} value={e}>{e}</option>)    
             }
             </select>
         </header>
         <main>
-            <div className="flex flex-wrap lg:gap-x-20 2xl:gap-x-[3%] justify-center">
+            <div className="flex flex-wrap gap-y-4 lg:gap-x-20 2xl:gap-x-[3%] justify-center">
               <TotalAtos/>
-              <TotalAtos/>
-              <TotalAtos/>
+              <CidadesNomeacao/>
+              <CidadesExoneracao/>
+            </div>
+            <div>
+              
             </div>
         </main>
         <Footer/>

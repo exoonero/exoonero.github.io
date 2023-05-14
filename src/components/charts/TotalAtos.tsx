@@ -1,9 +1,9 @@
 "use client";
 import React, { useState } from 'react';
 import dynamic from 'next/dynamic'
-import { ChartBox } from './ChartBox';
 
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
+
 
 export default function TotalAtos () {
   const [chartData, setChartData] = useState({
@@ -69,10 +69,10 @@ export default function TotalAtos () {
       colors: ["#57C5ED", "#EC6666"]
     }})
     return (
-        <ChartBox>
+        <section className="bg-white w-full 4xl:w-[31%] h-[19rem] 4xl:h-[22.68rem] mt-[1.875rem] 4xl:mt-[2.31rem] px-2 rounded-3xl">
             <h1 className="mb-3 font-bold text-xl text-center pt-5">Atos no período</h1>
             <Chart options={chartData.options} series={chartData.options.series} type='bar' width="100%" height="70%"/>
-        </ChartBox>
+        </section>
         
       );
 };
