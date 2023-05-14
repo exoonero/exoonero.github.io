@@ -6,7 +6,7 @@ interface NavbarProps{
     activeButton: "Home" | "About" | "News"  
 }
 
-export function Navbar({activeButton}: NavbarProps){
+export default function Navbar({activeButton}: NavbarProps){
     return (
         <nav className="3xl:w-[8.75rem] lg:w-[7.25rem] bg-[#5AB290]  lg:flex flex-col items-center 3xl:pt-[4.22rem] lg:pt-[3.489rem] hidden">
             <ExoneraLogo className="w-[5.645rem] 3xl:w-auto"/>
@@ -33,5 +33,3 @@ export function Navbar({activeButton}: NavbarProps){
         </nav>
     )
 }
-
-export default Navbar

@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 export default function Footer(){
     return (
         <footer className="flex text-xs text-[#6C6C6C] gap-x-5 items-center ">
