@@ -69,7 +69,7 @@ export function MainLayout({ children, activeButton}: MainLayoutProps) {
               <OKBRIcon className="lg:w-[11.33rem]"/>
             </div>
             <img
-              className="absolute 3xl:max-w-none lg:-bottom-[18rem] md:-bottom-[200rem] lg:scale-75 xl:-bottom-[19rem] xl:scale-75 min-[1920]:scale-100 3xl:-bottom-[28rem] left-2 3xl:-left-[6rem]"
+              className="absolute 3xl:max-w-none lg:-bottom-[18rem] md:-bottom-[200rem] lg:scale-75 xl:-bottom-[19rem] xl:scale-[.60] min-[1920]:scale-100 3xl:-bottom-[28rem] left-2 3xl:-left-[6rem]"
               src="https://alex-custodio.github.io/exonera/girl-icon.png"/>
           </aside>
         </div>
