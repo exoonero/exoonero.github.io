@@ -6,7 +6,7 @@ const nextConfig = {
     },
     output: 'export',
     trailingSlash: true, 
-    basePath: '/exonera'
+    basePath: '/exoonera'
     
 }
 
