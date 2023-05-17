@@ -6,8 +6,9 @@ const nextConfig = {
     },
     output: 'export',
     trailingSlash: true, 
-    basePath: '/exoonero'
-    
+    basePath: ''
+
+
 }
 
 module.exports = nextConfig
