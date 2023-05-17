@@ -3,34 +3,36 @@ import React, { useState } from "react";
 import dynamic from "next/dynamic";
 
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
-var seriesGeral: any[] = [];
-fetch("/data/inicial/geral-inicial.json", {})
+
+
+export default function TotalAtos() {
+  var dataNomeacoes: any[] = []
+  var dataExoneracoes: any[] = []
+  fetch("https://exoonero.github.io/site/data/inicial/geral-inicial.json", {})
     .then((res) => res.json())
     .then((data) => {
       const detalhe = data.detalhe;
-      seriesGeral = [
-        {
-          name: "Nomeações" as const,
-          data: []
-        } as any,
-        {
-          name: "Exonerações" as const,
-          data: []
-        } as any,
-      ];
       Object.values(detalhe).forEach((elemento: any, indice) => {
+
         let nomeacao = elemento.num_nomeacoes;
-        seriesGeral[0]["data"].push(nomeacao);
+        dataNomeacoes.push(nomeacao);
         let exoneracao = elemento.num_exoneracoes;
-        seriesGeral[1]["data"].push(exoneracao);
+        dataExoneracoes.push(exoneracao);
       });
     });
-export default function TotalAtos() {
   
-  
-  const [chartData, setChartData] = useState({
+  const chartData = {
     options: {
-      series: seriesGeral,
+      series: [
+        {
+          "name": "Nomeações" as const,
+          "data":  dataNomeacoes,
+        },
+        {
+          "name": "Exoneracoes",
+          "data": dataExoneracoes,
+        }
+      ] as any,
       legend: {
         position: "top" as const,
         horizontalAlign: "center" as const,
@@ -96,7 +98,7 @@ export default function TotalAtos() {
       },
       colors: ["#57C5ED", "#EC6666"],
     },
-  });
+  };
   return (
     <section className="bg-white w-full 4xl:w-[31%] h-[19rem] 4xl:h-[22.68rem] mt-[1.875rem] 4xl:mt-[2.31rem] px-2 rounded-3xl">
       <h1 className="mb-3 font-bold text-xl text-center pt-5">
@@ -104,7 +106,8 @@ export default function TotalAtos() {
       </h1>
       <Chart
         options={chartData.options}
-        series={seriesGeral}
+        series={chartData.options.series
+        }
         type="bar"
         width="100%"
         height="70%"
