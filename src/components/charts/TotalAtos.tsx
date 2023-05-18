@@ -8,7 +8,7 @@ const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 export default function TotalAtos() {
   var dataNomeacoes: any[] = []
   var dataExoneracoes: any[] = []
-  fetch("https://exoonero.github.io/site/data/inicial/geral-inicial.json", {})
+  fetch("https://exoonero.org/data/inicial/geral-inicial.json", {})
     .then((res) => res.json())
     .then((data) => {
       const detalhe = data.detalhe;
