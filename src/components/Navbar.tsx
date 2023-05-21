@@ -1,4 +1,4 @@
-import {AboutIcon, HomeIcon, ExoneraLogo, NewsIcon} from "@/assets/svgs/icons";
+import {AboutIcon, HomeIcon, ExoneraLogo, NewsIcon, GithubIcon} from "@/assets/svgs/icons";
 import clsx from "clsx";
 import Link from "next/link";
 
@@ -22,11 +22,10 @@ export default function Navbar({activeButton}: NavbarProps){
                     </Link>
                 </li>
                 <li>
-                    <Link href="/noticias">
-                        <NewsIcon className={clsx(activeButton === "News" ? "fill-white lg:w-8 3xl:w-auto": "fill-[#8BE2C0] hover:fill-gray-200 lg:w-8 3xl:w-auto")}/>
+                    <Link href="https://github.com/exoonero/extrator" target="_blank">
+                        <GithubIcon className="fill-[#8BE2C0] hover:fill-gray-200 lg:w-[2.31rem] 3xl:w-auto"/>
                     </Link>
                 </li>
-                
             </ul>
         
                 
