@@ -47,7 +47,7 @@ export default function TotalAtos({ municipio }: TotalAtosProps) {
             "data":  dataNomeacoes,
           },
           {
-            "name": "Exoneracoes",
+            "name": "Exonerações" as const,
             "data": dataExoneracoes,
           }
         ] as any,

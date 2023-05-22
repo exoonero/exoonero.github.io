@@ -1,16 +1,18 @@
 "use client";
 import Footer from "@/components/Footer";
-import CidadesExoneracao from "@/components/charts/CidadesExoneracao";
-import CidadesNomeacao from "@/components/charts/CidadesNomeacao";
 import TotalAtos from "@/components/charts/TotalAtos";
 import { MainLayout } from "@/layouts/MainLayout";
-import { useEffect,  useState } from "react";
+import { useEffect, useState } from "react";
 import Municipio from "@/components/Municipio";
 import Link from "next/link";
+import {useSearchParams } from "next/navigation";
 
-export default function Home() {
-  const [municipio, setMunicipio] = useState("geral");
-  const [nomeMunicipio, setNomeMunicipio] = useState("Alagoas");
+export default function MunicipioPage() {
+  const params = useSearchParams();
+  const municipioParam = params.get("municipio");
+  const nomeMunicipioParam = params.get("title");
+  const [municipio, setMunicipio] = useState(municipioParam as string);
+  const [nomeMunicipio, setNomeMunicipio] = useState(nomeMunicipioParam as string);
   useEffect(() => {
     if (municipio === "geral") {
       setNomeMunicipio("Alagoas");
@@ -26,16 +28,15 @@ export default function Home() {
   return (
     <main>
       <MainLayout activeButton={"Home"}>
-        <Municipio title="Alagoas" backActive={false}>
-          <TotalAtos municipio={"geral"} />
-          <CidadesNomeacao />
-          <CidadesExoneracao />
+        <Municipio title={nomeMunicipioParam as string} backActive={true}>
+          <TotalAtos municipio={municipioParam as string} />
         </Municipio>
-        <div className="gap-x-5 gap-y-5 mx-[15%] flex flex-col xl:flex-row mb-6">
+        <div className="gap-x-5 mx-[15%] flex flex-col xl:flex-row mb-6">
           <select
             className="w-[28.56rem] h-16 p-4 rounded-2xl mb-3 text-lg"
             id="municipio-select"
             onChange={(e) => {
+              setNomeMunicipio(e.target.options[e.target.selectedIndex].innerText)
               setMunicipio(e.target.value);
             }}
           >
@@ -143,6 +144,7 @@ export default function Home() {
             <option value="traipu">Traipú</option>
             <option value="vicosa">Viçosa</option>
           </select>
+          
           <Link href={{ pathname: "/municipio", query: { title: nomeMunicipio, municipio: municipio } }} className="bg-[#5AB290] max-lg:mx-auto rounded-[82px] text-white w-32 h-16 text-center pt-4 text-xl">
             <button>Ver</button>
           </Link>
