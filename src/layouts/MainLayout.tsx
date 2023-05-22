@@ -54,7 +54,7 @@ export function MainLayout({ children, activeButton}: MainLayoutProps) {
                 monitoramos atos do executivo municipal em Alagoas.
               </p>
               <Link
-                href=""
+                href="/sobre"
                 className="bg-[#EDDA46] hover:bg-[#dac83f] 3xl:w-[15.125rem] lg:w-[12.5rem] text-center text-[#376E59] hover:text-[#f3fffa] h-[3.625rem] flex items-center rounded-[5.125rem] shadow-md shadow-black/30 "
               >
                 <span className="w-full font-normal">

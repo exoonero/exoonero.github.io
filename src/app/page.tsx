@@ -7,6 +7,7 @@ import { MainLayout } from "@/layouts/MainLayout";
 import { useEffect,  useState } from "react";
 import Municipio from "@/components/Municipio";
 import Link from "next/link";
+import Head from "next/head";
 
 export default function Home() {
   const [municipio, setMunicipio] = useState("geral");
@@ -25,6 +26,9 @@ export default function Home() {
   }, [municipio]);
   return (
     <main>
+      <Head>
+        <link rel="shortcut icon" href="/favicon.ico" />
+      </Head>
       <MainLayout activeButton={"Home"}>
         <Municipio title="Alagoas" backActive={false}>
           <TotalAtos municipio={"geral"} />
