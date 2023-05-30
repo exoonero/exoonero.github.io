@@ -14,7 +14,6 @@ interface TotalAtosProps {
 export default function TotalAtos({ municipio }: TotalAtosProps) {
   const [dataNomeacoes, setDataNomeacoes] = useState<number[]>([]);
   const [dataExoneracoes, setDataExoneracoes] = useState<number[]>([]);
-  const [categories, setCategories] = useState<string[]>([]);
   useEffect(() => {
     const url =
       municipio === 'geral'
@@ -26,6 +25,11 @@ export default function TotalAtos({ municipio }: TotalAtosProps) {
         const detalhe = data.detalhe as Record<string, Detalhe>;
         const nomeacoes: number[] = [];
         const exoneracoes: number[] = [];
+        const primeiroAnoComDados = Number(Object.keys(detalhe).sort()[0]);
+        for (let ano = 2014; ano < primeiroAnoComDados; ano++) {
+          nomeacoes.push(0);
+          exoneracoes.push(0);
+        }
         Object.values(detalhe).forEach((elemento) => {
           let nomeacao = elemento.num_nomeacoes;
           nomeacoes.push(nomeacao);
@@ -34,7 +38,6 @@ export default function TotalAtos({ municipio }: TotalAtosProps) {
         });
         setDataNomeacoes(nomeacoes);
         setDataExoneracoes(exoneracoes);
-        setCategories(Object.keys(detalhe).sort());
       });
   }, [municipio]);
 
@@ -84,7 +87,7 @@ export default function TotalAtos({ municipio }: TotalAtosProps) {
           colors: ["transparent"],
         },
         xaxis: {
-          categories: categories,
+          categories: ["2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023"] as const,
           labels: {
             style: {
               fontFamily: "Source Sans Pro, sans-serif",
@@ -113,7 +116,7 @@ export default function TotalAtos({ municipio }: TotalAtosProps) {
         colors: ["#57C5ED", "#EC6666"],
       },
     };
-  }, [dataNomeacoes, dataExoneracoes, categories]);
+  }, [dataNomeacoes, dataExoneracoes]);
 
   return (
     <section className="bg-white w-full 4xl:w-[31%] h-[19rem] 4xl:h-[22.68rem] mt-[1.875rem] 4xl:mt-[2.31rem] px-2 rounded-3xl">
