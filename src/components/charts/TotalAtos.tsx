@@ -87,7 +87,7 @@ export default function TotalAtos({ municipio }: TotalAtosProps) {
           colors: ["transparent"],
         },
         xaxis: {
-          categories: ["2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023"],
+          categories: ["2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023"] as const,
           labels: {
             style: {
               fontFamily: "Source Sans Pro, sans-serif",
