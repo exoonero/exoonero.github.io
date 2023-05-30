@@ -25,7 +25,7 @@ export default function TotalAtos({ municipio }: TotalAtosProps) {
         const detalhe = data.detalhe as Record<string, Detalhe>;
         const nomeacoes: number[] = [];
         const exoneracoes: number[] = [];
-        const primeiroAnoComDados = Math.min(...Object.keys(detalhe).map(Number));
+        const primeiroAnoComDados = Number(Object.keys(detalhe).sort()[0]);
         for (let ano = 2014; ano < primeiroAnoComDados; ano++) {
           nomeacoes.push(0);
           exoneracoes.push(0);
