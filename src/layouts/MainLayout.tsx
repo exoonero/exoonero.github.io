@@ -3,6 +3,7 @@ import Link from "next/link";
 import OKBRIcon from "@/assets/svgs/okbr-icon";
 import { useMemo } from "react";
 import { Source_Sans_Pro } from "next/font/google";
+import { IfalIcon } from "@/assets/svgs/icons";
 
 const sourceSansPro = Source_Sans_Pro({
   weight: ["300", "400", "600"],
@@ -36,7 +37,7 @@ export function MainLayout({ children, activeButton}: MainLayoutProps) {
       <div className="h-screen flex">
         <div className="flex flex-1" >
           <Navbar activeButton={activeButton}/>
-          <aside className="hidden xl:w-[28.875rem] 3xl:w-[30rem] bg-[#4AA381] pl-12 pr-9 3xl:pt-12 lg:pt-10 lg:flex flex-col 3xl:gap-y-[2.6175rem] lg:gap-y-[2.5rem] relative overflow-hidden ">
+          <aside className="hidden xl:w-[28.875rem] 3xl:w-[30rem] bg-[#4AA381] pl-12 pr-9 3xl:pt-12 lg:pt-9 lg:flex flex-col 3xl:gap-y-[2.6175rem] lg:gap-y-[2.5rem] relative overflow-hidden ">
             <div className="w-full flex flex-col gap-y-3 3xl:gap-y-5">
               <h1 className="text-white text-5xl lg:text-[2.56rem] font-semibold max-w-[22rem]">
                 Confira as nomeações e exonerações de Alagoas
@@ -62,14 +63,22 @@ export function MainLayout({ children, activeButton}: MainLayoutProps) {
                 </span>
               </Link>
             </div>
-            <div className="flex gap-x-1 items-center ">
-              <p className="text-white lg:text-base w-[7rem] font-normal">
-                Uma iniciativa apoiada por
-              </p>
-              <OKBRIcon className="lg:w-[11.33rem]"/>
+            <div className="flex flex-row justify-between items-center ">
+              <div className="flex flex-col gap-y-2">
+                <p className="text-white lg:text-base w-[7rem] font-normal">
+                  Realização
+                </p>
+                <IfalIcon/>
+              </div>
+              <div className="flex flex-col gap-2">
+                <p className="text-white lg:text-base w-[7rem] font-normal">
+                  Apoio
+                </p>
+                <OKBRIcon/>
+              </div>
             </div>
             <img
-              className="absolute 3xl:max-w-none lg:-bottom-[18rem] md:-bottom-[200rem] lg:scale-75 xl:-bottom-[19rem] xl:scale-[.62] 2xl:scale-75  min-[1920]:scale-100 3xl:-bottom-[28rem] left-2 3xl:-left-[6rem]"
+              className="absolute 3xl:max-w-none lg:-bottom-[18rem] md:-bottom-[200rem] lg:scale-[.62] xl:-bottom-[19rem] 2xl:scale-[.68] min-[1920]:scale-[.95] 3xl:-bottom-[28rem] left-2 3xl:-left-[6rem]"
               src="https://exoonero.org//girl-icon.png"/>
           </aside>
         </div>
