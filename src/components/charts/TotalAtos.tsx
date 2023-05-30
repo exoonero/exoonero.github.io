@@ -93,6 +93,13 @@ export default function TotalAtos({ municipio }: TotalAtosProps) {
             },
           },
         },
+        yaxis: {
+          labels: {
+            formatter: function (val: number) {
+              return val.toLocaleString();
+            } 
+          }
+        },
         tooltip: {
           intersect: false,
           shared: true,
