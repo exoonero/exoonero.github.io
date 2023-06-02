@@ -28,18 +28,7 @@ interface MunicipioProps {
           <div className="flex flex-wrap gap-y-4 lg:gap-x-20 2xl:gap-x-[3%] justify-center">
             {children}
           </div>
-          <div className="flex flex-col gap-y-6 ">
-            <h1 className="text-2xl 2xl:text-3xl 3xl:text-[2.4375rem] 4xl:w-[50rem] font-semibold  leading-10 mt-6 mx-auto text-center">
-              Verifique também as nomeações e exonerações de qualquer de qualquer
-              cidade de Alagoas
-            </h1>
-            <p className="font-normal text-[#7C828A] 3xl:mx-auto 4xl:w-[59rem]">
-              Coletamos os diários oficiais municipais publicados pela Associação
-              dos Municípios Alagoanos (AMA). Escolha abaixo uma cidade de Alagoas
-              e um determinado período e te apresentaremos as nomeações e
-              exonerações do município.
-            </p>
-          </div>
+
         </main>
       </main>
     );
