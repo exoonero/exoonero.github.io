@@ -10,7 +10,6 @@ import Head from "next/head";
 
 import { Else, If, Then } from "react-if";
 
-
 export default function Home() {
   return (
     <main>

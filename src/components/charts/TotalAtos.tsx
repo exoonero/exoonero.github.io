@@ -1,7 +1,7 @@
-import React, { useMemo, useState, useEffect } from 'react';
-import dynamic from 'next/dynamic';
+import React, { useMemo, useState, useEffect } from "react";
+import dynamic from "next/dynamic";
 
-const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
+const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
 interface Detalhe {
   num_nomeacoes: number;
@@ -16,8 +16,8 @@ export default function TotalAtos({ municipio }: TotalAtosProps) {
   const [dataExoneracoes, setDataExoneracoes] = useState<number[]>([]);
   useEffect(() => {
     const url =
-      municipio === 'geral'
-        ? 'https://exoonero.org/data/inicial/geral-inicial.json'
+      municipio === "geral"
+        ? "https://exoonero.org/data/inicial/geral-inicial.json"
         : `https://exoonero.org/data/inicial/${municipio}-inicial.json`;
     fetch(url, {})
       .then((res) => res.json())
@@ -46,13 +46,13 @@ export default function TotalAtos({ municipio }: TotalAtosProps) {
       options: {
         series: [
           {
-            "name": "Nomeações" as const,
-            "data":  dataNomeacoes,
+            name: "Nomeações" as const,
+            data: dataNomeacoes,
           },
           {
-            "name": "Exonerações" as const,
-            "data": dataExoneracoes,
-          }
+            name: "Exonerações" as const,
+            data: dataExoneracoes,
+          },
         ] as any,
         legend: {
           position: "top" as const,
@@ -87,7 +87,18 @@ export default function TotalAtos({ municipio }: TotalAtosProps) {
           colors: ["transparent"],
         },
         xaxis: {
-          categories: ["2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023"] as const,
+          categories: [
+            "2014",
+            "2015",
+            "2016",
+            "2017",
+            "2018",
+            "2019",
+            "2020",
+            "2021",
+            "2022",
+            "2023",
+          ] as const,
           labels: {
             style: {
               fontFamily: "Source Sans Pro, sans-serif",
@@ -100,8 +111,8 @@ export default function TotalAtos({ municipio }: TotalAtosProps) {
           labels: {
             formatter: function (val: number) {
               return val.toLocaleString();
-            } 
-          }
+            },
+          },
         },
         tooltip: {
           intersect: false,
@@ -120,8 +131,16 @@ export default function TotalAtos({ municipio }: TotalAtosProps) {
 
   return (
     <section className="bg-white w-full 4xl:w-[31%] h-[19rem] 4xl:h-[22.68rem] mt-[1.875rem] 4xl:mt-[2.31rem] px-2 rounded-3xl">
-      <h1 className="mb-3 font-bold text-xl text-center pt-5">Atos no período</h1>
-      <Chart options={chartData.options} series={chartData.options.series} type="bar" width="100%" height="70%" />
+      <h1 className="mb-3 font-bold text-xl text-center pt-5">
+        Atos no período
+      </h1>
+      <Chart
+        options={chartData.options}
+        series={chartData.options.series}
+        type="bar"
+        width="100%"
+        height="70%"
+      />
     </section>
   );
 }
