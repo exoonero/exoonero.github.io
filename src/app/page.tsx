@@ -8,6 +8,7 @@ import { useEffect,  useState } from "react";
 import Municipio from "@/components/Municipio";
 import Link from "next/link";
 import Head from "next/head";
+import { Else, If, Then } from "react-if";
 
 export default function Home() {
   const [municipio, setMunicipio] = useState("geral");
@@ -30,7 +31,7 @@ export default function Home() {
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <MainLayout activeButton={"Home"}>
-        <Municipio title="Alagoas" backActive={false}>
+        <Municipio title={nomeMunicipio} backActive={false}>
           <div className="flex flex-col mt-5 ">
             <p className="font-normal text-[#7C828A] 3xl:mx-auto 4xl:w-[59rem]">
               Coletamos os diários oficiais municipais publicados pela Associação
@@ -149,13 +150,17 @@ export default function Home() {
               <option value="traipu">Traipú</option>
               <option value="vicosa">Viçosa</option>
             </select>
-            <Link href={{ pathname: "/municipio", query: { title: nomeMunicipio, municipio: municipio } }} className="bg-[#5AB290] max-lg:mx-auto rounded-[82px] text-white w-32 h-16 text-center pt-4 text-xl">
-              <button>Ver</button>
-            </Link>
           </div>
-          <TotalAtos municipio={"geral"} />
-          <CidadesNomeacao />
-          <CidadesExoneracao />
+          <If condition={municipio === "geral"}>
+            <Then>
+              <TotalAtos municipio={"geral"} />
+              <CidadesNomeacao />
+              <CidadesExoneracao />
+            </Then>
+          </If>
+          <Else>
+            <TotalAtos municipio={municipio} />
+          </Else>
         </Municipio>
 
         <Footer />
