@@ -34,9 +34,7 @@ export default function Home() {
           <div className="flex flex-col mt-5 ">
             <p className="font-normal text-[#7C828A] 3xl:mx-auto 4xl:w-[59rem]">
               Coletamos os diários oficiais municipais publicados pela Associação
-              dos Municípios Alagoanos (AMA). Escolha abaixo uma cidade de Alagoas
-              e um determinado período e te apresentaremos as nomeações e
-              exonerações do município.
+              dos Municípios Alagoanos (AMA). Escolhendo a localidade em um determinado período, te apresentaremos as nomeações e exonerações que ocorreram.
             </p>
           </div>
           <div className="gap-x-5 gap-y-5 mx-[15%] flex flex-col xl:flex-row ">
