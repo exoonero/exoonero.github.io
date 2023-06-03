@@ -1,7 +1,10 @@
+"use client"
 import { BackIcon } from "@/assets/svgs/icons";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { If, Then } from "react-if";
+import Title from "./Title";
+import Charts from "./charts/Charts";
 
 interface MunicipioProps {
   title: string;
@@ -28,10 +31,7 @@ export default function Municipio({
             </Link>
           </Then>
         </If>
-        <h1 className=" text-2xl 2xl:text-3xl 3xl:text-[2.4375rem]  font-semibold lg:w-[42.93rem] leading-10">
-          Acompanhe as nomeações e exonerações que aconteceram em
-          <span className="text-[#4AA381]">{(" " + title) as string}</span>
-        </h1>
+        <Title municipio={title}/>
       </header>
       <div className="flex flex-col mt-5 mb-5">
         <p className="font-normal text-[#7C828A] 3xl:mx-auto 4xl:w-[59rem]">
@@ -46,7 +46,7 @@ export default function Municipio({
           className="w-[28.56rem] h-16 p-4 rounded-2xl text-lg"
           id="municipio-select"
           onChange={(e) => {
-            router.push(`/al/${e.target.value}`);
+            router.push(`/municipio/${e.target.value}`);
           }}
         >
           <option value="geral" selected>
@@ -153,9 +153,9 @@ export default function Municipio({
         </select>
       </div>
       <main className="flex flex-col gap-y-6 3xl:mb-14 mb-8">
-        <div className="flex flex-wrap gap-y-4 lg:gap-x-20 2xl:gap-x-[3%] justify-center">
+        <Charts>
           {children}
-        </div>
+        </Charts>
       </main>
     </main>
   );

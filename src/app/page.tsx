@@ -5,10 +5,8 @@ import CidadesNomeacao from "@/components/charts/CidadesNomeacao";
 import TotalAtos from "@/components/charts/TotalAtos";
 import { MainLayout } from "@/layouts/MainLayout";
 import Municipio from "@/components/Municipio";
-import Link from "next/link";
 import Head from "next/head";
 
-import { Else, If, Then } from "react-if";
 
 export default function Home() {
   return (
@@ -22,7 +20,6 @@ export default function Home() {
           <CidadesNomeacao />
           <CidadesExoneracao />
         </Municipio>
-
         <Footer />
       </MainLayout>
     </main>

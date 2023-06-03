@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <footer className="flex text-xs text-[#6C6C6C] gap-x-5 items-center ">
-      <img className="w-24" src="https://exoonero.org//creative-commons.png" />
+      <img className="w-24" src="https://exoonero.org/creative-commons.png" />
       <p>
         Dados públicos extraídos de diários oficiais municipais da Associação
         dos Municípios Alagoanos (AMA). Todo o conteúdo do site está disponível

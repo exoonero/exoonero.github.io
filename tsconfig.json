@@ -23,6 +23,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/charts/TotalAtos.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/charts/TotalAtos.tsx", "src/app/municipio/[municipio]/page.js", "src/app/municipio/page.js"],
   "exclude": ["node_modules"]
 }

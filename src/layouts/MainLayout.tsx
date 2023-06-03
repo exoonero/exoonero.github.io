@@ -45,7 +45,7 @@ export function MainLayout({ children, activeButton }: MainLayoutProps) {
               <div className="flex gap-x-3 items-center">
                 <img
                   className="3xl:w-[7.56rem] lg:w-[6.301rem] 3xl:h-[2.31rem] lg:h-[1.92rem]"
-                  src="https://exoonero.org//img-profiles.png"
+                  src="https://exoonero.org/img-profiles.png"
                 />
                 <p className="text-white lg:text-base leading-4 font-normal ">
                   Juntos por uma sociedade mais transparente e participativa
@@ -80,7 +80,7 @@ export function MainLayout({ children, activeButton }: MainLayoutProps) {
             </div>
             <img
               className="absolute 3xl:max-w-none lg:-bottom-[18rem] md:-bottom-[200rem] lg:scale-[.62] xl:-bottom-[19rem] 2xl:scale-[.68] min-[1920]:scale-[.95] 3xl:-bottom-[28rem] left-2 3xl:-left-[6rem]"
-              src="https://exoonero.org//girl-icon.png"
+              src="https://exoonero.org/girl-icon.png"
             />
           </aside>
         </div>
