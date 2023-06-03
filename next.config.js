@@ -4,7 +4,6 @@ const nextConfig = {
     experimental: {
         appDir: true
     },
-    output: 'export',
     trailingSlash: true, 
     basePath: ''
 
