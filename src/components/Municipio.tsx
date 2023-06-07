@@ -46,7 +46,7 @@ export default function Municipio({
           className="w-[28.56rem] h-16 p-4 rounded-2xl text-lg"
           id="municipio-select"
           onChange={(e) => {
-            router.push(`/municipio/${e.target.value}`);
+            router.push(`/al/${e.target.value}`);
           }}
         >
           <option value="geral" selected>
