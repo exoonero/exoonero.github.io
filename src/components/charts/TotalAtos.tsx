@@ -5,6 +5,10 @@ import dynamic from "next/dynamic";
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
 interface Detalhe {
+  resumo: {
+    num_nomeacoes: number;
+    num_exoneracoes: number;
+  };
   num_nomeacoes: number;
   num_exoneracoes: number;
 }
@@ -18,11 +22,12 @@ export default function TotalAtos({ municipio }: TotalAtosProps) {
   useEffect(() => {
     const url =
       municipio === "geral"
-        ? "https://exoonero.org/data/inicial/geral-inicial.json"
-        : `https://exoonero.org/data/inicial/${municipio}-inicial.json`;
+        ? "https://exoonero.org/data/geral.json"
+        : `https://exoonero.org/data/${municipio}.json`;
     fetch(url, {})
       .then((res) => res.json())
       .then((data) => {
+        const condicaoMunicipio = municipio === "geral" 
         const detalhe = data.detalhe as Record<string, Detalhe>;
         const nomeacoes: number[] = [];
         const exoneracoes: number[] = [];
@@ -32,9 +37,9 @@ export default function TotalAtos({ municipio }: TotalAtosProps) {
           exoneracoes.push(0);
         }
         Object.values(detalhe).forEach((elemento) => {
-          let nomeacao = elemento.num_nomeacoes;
+          let nomeacao = condicaoMunicipio? elemento.num_nomeacoes : elemento.resumo.num_nomeacoes;
           nomeacoes.push(nomeacao);
-          let exoneracao = elemento.num_exoneracoes;
+          let exoneracao = condicaoMunicipio? elemento.num_exoneracoes : elemento.resumo.num_exoneracoes;
           exoneracoes.push(exoneracao);
         });
         setDataNomeacoes(nomeacoes);
