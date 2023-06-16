@@ -163,10 +163,10 @@ export default function Municipio({
             console.log(municipioId)
             if (backActive === false){
               router.push(`/${valor}`);
-            } else if (backActive === true && municipioId === "geral"){
-              router.push("/");
-            } else if (backActive === true && valor !== "geral" && municipioId === "geral"){
+            } else if (backActive === true && municipioId === "geral" && valor !== "geral"){
               router.push(`/${valor}`);
+            } else if (backActive === true && valor === "geral" && municipioId === "geral"){
+              router.push(`/`);
             }
             else if (backActive === true && municipioId !== "geral" && valor === "geral"){
               router.push(`/al/${municipioId}/`);
