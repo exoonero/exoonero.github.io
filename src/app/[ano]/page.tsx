@@ -7,7 +7,6 @@ import { If, Then, Else } from "react-if";
 import { ano } from './consts';
 
 interface Params {
-  municipio: string;
   ano: string;
 }
 export async function generateStaticParams(): Promise<Params[]> {
@@ -19,15 +18,15 @@ interface AnoPageProps {
 }
 
 
-const AnoPage: React.FC<AnoPageProps> = ({ params }: {params: {municipio: string, ano: string}}) => {
+const AnoPage: React.FC<AnoPageProps> = ({ params }: {params: {ano: string}}) => {
   
   return (
     
     <main>
       
           <MainLayout activeButton={"Home"}>
-            <Municipio municipioId={params.municipio} backActive={true} ano={params.ano}>
-              <TotalAtos municipio={params.municipio} ano={params.ano} />
+            <Municipio municipioId={"geral"} backActive={true} ano={params.ano}>
+              <TotalAtos municipio={"geral"} ano={params.ano} />
             </Municipio>
             <Footer />
           </MainLayout>

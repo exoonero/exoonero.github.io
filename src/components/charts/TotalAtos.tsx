@@ -36,7 +36,6 @@ export default function TotalAtos({ municipio, ano }: TotalAtosProps) {
     fetch(url, {})
       .then((res) => res.json())
       .then((data) => {
-        const condicaoMunicipio = municipio === "geral" 
         const detalhe = data.detalhe as Record<string, Detalhe>;
         const nomeacoes: number[] = [];
         const exoneracoes: number[] = [];
@@ -46,9 +45,9 @@ export default function TotalAtos({ municipio, ano }: TotalAtosProps) {
           exoneracoes.push(0);
         }
         Object.values(detalhe).forEach((elemento) => {
-          let nomeacao = condicaoMunicipio? elemento.num_nomeacoes : elemento.resumo.num_nomeacoes;
+          let nomeacao = elemento.resumo.num_nomeacoes;
           nomeacoes.push(nomeacao);
-          let exoneracao = condicaoMunicipio? elemento.num_exoneracoes : elemento.resumo.num_exoneracoes;
+          let exoneracao = elemento.resumo.num_exoneracoes;
           exoneracoes.push(exoneracao);
         });
         setDataNomeacoes(nomeacoes);
@@ -60,11 +59,11 @@ export default function TotalAtos({ municipio, ano }: TotalAtosProps) {
     fetch(url, {})
       .then((res) => res.json())
       .then((data) => {
-        const detalhe = data.detalhe[ano] as Record<string, DetalheAno>;
-        const nomeacoes: number[] = Array(12).fill(0);
-        const exoneracoes: number[] = Array(12).fill(0);
-        console.log(detalhe);
-        delete detalhe.resumo;
+
+          const detalhe = ano in data.detalhe ? data.detalhe[ano] as Record<string, DetalheAno> : {};
+          const nomeacoes: number[] = Array(12).fill(0);
+          const exoneracoes: number[] = Array(12).fill(0);
+          delete detalhe.resumo;
         for (const [mes, dados] of Object.entries(detalhe)) {
           const index = Number(mes) - 1;
           nomeacoes[index] = dados.num_nomeacoes;

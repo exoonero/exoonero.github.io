@@ -15,7 +15,7 @@ export default function Home() {
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <MainLayout activeButton={"Home"}>
-        <Municipio municipioId={"Alagoas"} backActive={false}>
+        <Municipio municipioId={"geral"} backActive={false} ano={"geral"}>
           <TotalAtos municipio={"geral"} ano={"todos"} />
           <CidadesNomeacao />
           <CidadesExoneracao />

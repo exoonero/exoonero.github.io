@@ -10,12 +10,14 @@ interface MunicipioProps {
   municipioId: string;
   children: React.ReactNode;
   backActive?: boolean;
+  ano: string;
 }
 
 export default function Municipio({
   municipioId,
   children,
   backActive,
+  ano
 }: MunicipioProps) {
   const router = useRouter();
   return (
@@ -31,7 +33,7 @@ export default function Municipio({
             </Link>
           </Then>
         </If>
-        <Title municipio={municipioId}/>
+        <Title municipio={municipioId} ano={ano}/>
       </header>
       <div className="flex flex-col mt-5 mb-5">
         <p className="font-normal text-[#7C828A] 3xl:mx-auto 4xl:w-[59rem]">
@@ -152,6 +154,38 @@ export default function Municipio({
           <option value="traipu">Traipú</option>
           <option value="vicosa">Viçosa</option>
         </select>
+        <select
+          className="w-[28.56rem] h-16 p-4 rounded-2xl text-lg"
+          id="municipio-select" value={ano}
+          onChange={(e) => {
+            const valor = e.target.value;
+            console.log(valor)
+            console.log(municipioId)
+            if (backActive === false){
+              router.push(`/${valor}`);
+            } else if (backActive === true && municipioId === "geral"){
+              router.push("/");
+            }
+            else if (backActive === true && municipioId !== "geral" && valor === "geral"){
+              router.push(`/al/${municipioId}/`);
+            } else {
+              router.push(`/al/${municipioId}/${valor}`);
+            }
+          }}>
+            <option value="geral">
+            Todos os anos
+            </option>
+            <option value="2014">2014</option>
+            <option value="2015">2015</option>
+            <option value="2016">2016</option>
+            <option value="2017">2017</option>
+            <option value="2018">2018</option>
+            <option value="2019">2019</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+          </select>
       </div>
       <main className="flex flex-col gap-y-6 3xl:mb-14 mb-8">
         <Charts>
