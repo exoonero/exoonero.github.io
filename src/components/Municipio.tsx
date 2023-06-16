@@ -165,7 +165,7 @@ export default function Municipio({
               router.push(`/${valor}`);
             } else if (backActive === true && municipioId === "geral"){
               router.push("/");
-            } else if (backActive === true && valor === "geral" && municipioId === "geral"){
+            } else if (backActive === true && valor !== "geral" && municipioId === "geral"){
               router.push(`/${valor}`);
             }
             else if (backActive === true && municipioId !== "geral" && valor === "geral"){
