@@ -12,18 +12,27 @@ interface Detalhe {
   num_nomeacoes: number;
   num_exoneracoes: number;
 }
-interface TotalAtosProps {
-  municipio: string;
+interface DetalheAno {
+  num_nomeacoes: number;
+  num_exoneracoes: number;
 }
 
-export default function TotalAtos({ municipio }: TotalAtosProps) {
+interface TotalAtosProps {
+  municipio: string;
+  ano: "todos" | string;
+}
+
+export default function TotalAtos({ municipio, ano }: TotalAtosProps) {
   const [dataNomeacoes, setDataNomeacoes] = useState<number[]>([]);
   const [dataExoneracoes, setDataExoneracoes] = useState<number[]>([]);
-  useEffect(() => {
+  const [categories, setCategories] = useState<string[]>([]);
+  const mostrarTodosAnos = ano === "todos";
+  function dadosGeraisAnos(){
     const url =
       municipio === "geral"
         ? "https://exoonero.org/data/geral.json"
         : `https://exoonero.org/data/${municipio}.json`;
+    
     fetch(url, {})
       .then((res) => res.json())
       .then((data) => {
@@ -45,6 +54,28 @@ export default function TotalAtos({ municipio }: TotalAtosProps) {
         setDataNomeacoes(nomeacoes);
         setDataExoneracoes(exoneracoes);
       });
+  }
+  function dadosAno() {
+    const url = `https://exoonero.org/data/${municipio}.json`;
+    fetch(url, {})
+      .then((res) => res.json())
+      .then((data) => {
+        const detalhe = data.detalhe[ano] as Record<string, DetalheAno>;
+        const nomeacoes: number[] = Array(12).fill(0);
+        const exoneracoes: number[] = Array(12).fill(0);
+        console.log(detalhe);
+        delete detalhe.resumo;
+        for (const [mes, dados] of Object.entries(detalhe)) {
+          const index = Number(mes) - 1;
+          nomeacoes[index] = dados.num_nomeacoes;
+          exoneracoes[index] = dados.num_exoneracoes;
+        }
+        setDataNomeacoes(nomeacoes);
+        setDataExoneracoes(exoneracoes);
+      });
+  }
+  useEffect(() => {
+    mostrarTodosAnos? dadosGeraisAnos(): dadosAno()
   }, [municipio]);
 
   const chartData = useMemo(() => {
@@ -89,11 +120,11 @@ export default function TotalAtos({ municipio }: TotalAtosProps) {
         },
         stroke: {
           show: true,
-          width: 3,
+          width: 4,
           colors: ["transparent"],
         },
         xaxis: {
-          categories: [
+          categories: mostrarTodosAnos? [
             "2014",
             "2015",
             "2016",
@@ -104,7 +135,7 @@ export default function TotalAtos({ municipio }: TotalAtosProps) {
             "2021",
             "2022",
             "2023",
-          ] as const,
+          ] : ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"],
           labels: {
             style: {
               fontFamily: "Source Sans Pro, sans-serif",

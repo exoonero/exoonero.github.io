@@ -4,26 +4,30 @@ import TotalAtos from "@/components/charts/TotalAtos";
 import { MainLayout } from "@/layouts/MainLayout";
 import Municipio from "@/components/Municipio";
 import { If, Then, Else } from "react-if";
-import { municipios } from './municipios';
+import { ano } from './consts';
+
 interface Params {
   municipio: string;
+  ano: string;
 }
-
 export async function generateStaticParams(): Promise<Params[]> {
-  return municipios;
+  return ano;
 }
 
-interface MunicipioPageProps {
+interface AnoPageProps {
   params: Params;
 }
 
-const MunicipioPage: React.FC<MunicipioPageProps> = ({ params }) => {
+
+const AnoPage: React.FC<AnoPageProps> = ({ params }: {params: {municipio: string, ano: string}}) => {
   
   return (
+    
     <main>
+      
           <MainLayout activeButton={"Home"}>
             <Municipio municipioId={params.municipio} backActive={true}>
-              <TotalAtos municipio={params.municipio as string} ano={"todos"} />
+              <TotalAtos municipio={params.municipio} ano={params.ano} />
             </Municipio>
             <Footer />
           </MainLayout>
@@ -31,4 +35,4 @@ const MunicipioPage: React.FC<MunicipioPageProps> = ({ params }) => {
   );
 };
 
-export default MunicipioPage;
+export default AnoPage;

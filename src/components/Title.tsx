@@ -8,7 +8,7 @@ interface TitleProps {
 export default function Title({municipio}: TitleProps) {
     const [titleText, setTitleText] = useState("Alagoas");
     const buildTitle = (municipio: string) => {
-        fetch(`https://exoonero.org/data/inicial/${municipio}-inicial.json`, {})
+        fetch(`https://exoonero.org/data/${municipio}.json`, {})
         .then((response) => 
           response.json()
         )

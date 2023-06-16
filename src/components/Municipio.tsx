@@ -7,13 +7,13 @@ import Title from "./Title";
 import Charts from "./charts/Charts";
 
 interface MunicipioProps {
-  title: string;
+  municipioId: string;
   children: React.ReactNode;
   backActive?: boolean;
 }
 
 export default function Municipio({
-  title,
+  municipioId,
   children,
   backActive,
 }: MunicipioProps) {
@@ -31,7 +31,7 @@ export default function Municipio({
             </Link>
           </Then>
         </If>
-        <Title municipio={title}/>
+        <Title municipio={municipioId}/>
       </header>
       <div className="flex flex-col mt-5 mb-5">
         <p className="font-normal text-[#7C828A] 3xl:mx-auto 4xl:w-[59rem]">
@@ -48,6 +48,7 @@ export default function Municipio({
           onChange={(e) => {
             router.push(`/al/${e.target.value}`);
           }}
+          value={municipioId}
         >
           <option value="geral" selected>
             Escolha uma cidade de Alagoas
