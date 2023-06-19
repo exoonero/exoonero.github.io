@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { BackIcon } from "@/assets/svgs/icons";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -31,7 +31,7 @@ export default function Municipio({
             </Link>
           </Then>
         </If>
-        <Title municipio={title}/>
+        <Title municipio={title} />
       </header>
       <div className="flex flex-col mt-5 mb-5">
         <p className="font-normal text-[#7C828A] 3xl:mx-auto 4xl:w-[59rem]">
@@ -41,7 +41,10 @@ export default function Municipio({
           ocorreram.
         </p>
       </div>
-      <div className="gap-x-5 gap-y-5 mx-[25%] flex flex-col xl:flex-row ">
+      <div className="gap-x-5 gap-y-5 mx-[25%] flex flex-col md:flex-row ">
+        <div className="bg-[#5AB290] hover:bg-[#84d1b4] max-lg:mx-auto rounded-[82px] text-white max-3xl:w-full w-[25%] h-16 text-center pt-4 px-5 text-lg">
+          <button>Compartilhar</button>
+        </div>
         <select
           className="w-[28.56rem] h-16 p-4 rounded-2xl text-lg"
           id="municipio-select"
@@ -153,9 +156,7 @@ export default function Municipio({
         </select>
       </div>
       <main className="flex flex-col gap-y-6 3xl:mb-14 mb-8">
-        <Charts>
-          {children}
-        </Charts>
+        <Charts>{children}</Charts>
       </main>
     </main>
   );
