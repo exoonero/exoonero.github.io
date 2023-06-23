@@ -57,7 +57,7 @@ export default function TotalAtos({ municipio, ano }: TotalAtosProps) {
       });
   }
   function dadosAno() {
-    const url = `https://alex-custodio.github.io/aff/data/${municipio}.json`;
+    const url = `https://exoonero.org/data/${municipio}.json`;
     fetch(url, {})
       .then((res) => res.json())
       .then((data) => {
