@@ -5,13 +5,15 @@ import { useRouter } from "next/navigation";
 import { If, Then } from "react-if";
 import Title from "./Title";
 import Charts from "./charts/Charts";
-
+import {ano} from "../app/[ano]/consts"
 interface MunicipioProps {
   municipioId: string;
   children: React.ReactNode;
   backActive?: boolean;
   ano: string;
 }
+
+const listaAnos = ano
 
 export default function Municipio({
   municipioId,
@@ -20,6 +22,27 @@ export default function Municipio({
   ano
 }: MunicipioProps) {
   const router = useRouter();
+  const selecionarMunicipio = (e:any) => {
+    router.push(`/al/${e.target.value}`);
+  }
+  const selecionarAno = (e: any) => {
+    const valor = e.target.value;
+    console.log(valor)
+    console.log(municipioId)
+    if (backActive === false){
+      router.push(`/${valor}`);
+    } else if (backActive === true && municipioId === "geral" && valor !== "geral"){
+      router.push(`/${valor}`);
+    } else if (backActive === true && valor === "geral" && municipioId === "geral"){
+      router.push(`/`);
+    }
+    else if (backActive === true && municipioId !== "geral" && valor === "geral"){
+      router.push(`/al/${municipioId}/`);
+    } else {
+      router.push(`/al/${municipioId}/${valor}`);
+    }
+  }
+
   return (
     <main>
       <header className="flex gap-x-6 flex-row lg:flex-row gap-y-3 ">
@@ -47,9 +70,7 @@ export default function Municipio({
         <select
           className="w-[28.56rem] h-16 p-4 rounded-2xl text-lg"
           id="municipio-select"
-          onChange={(e) => {
-            router.push(`/al/${e.target.value}`);
-          }}
+          onChange={selecionarMunicipio}
           value={municipioId}
         >
           <option value="geral" selected>
@@ -157,36 +178,15 @@ export default function Municipio({
         <select
           className="w-[28.56rem] h-16 p-4 rounded-2xl text-lg"
           id="municipio-select" value={ano}
-          onChange={(e) => {
-            const valor = e.target.value;
-            console.log(valor)
-            console.log(municipioId)
-            if (backActive === false){
-              router.push(`/${valor}`);
-            } else if (backActive === true && municipioId === "geral" && valor !== "geral"){
-              router.push(`/${valor}`);
-            } else if (backActive === true && valor === "geral" && municipioId === "geral"){
-              router.push(`/`);
-            }
-            else if (backActive === true && municipioId !== "geral" && valor === "geral"){
-              router.push(`/al/${municipioId}/`);
-            } else {
-              router.push(`/al/${municipioId}/${valor}`);
-            }
-          }}>
+          onChange={selecionarAno}>
             <option value="geral">
             Todos os anos
             </option>
-            <option value="2014">2014</option>
-            <option value="2015">2015</option>
-            <option value="2016">2016</option>
-            <option value="2017">2017</option>
-            <option value="2018">2018</option>
-            <option value="2019">2019</option>
-            <option value="2020">2020</option>
-            <option value="2021">2021</option>
-            <option value="2022">2022</option>
-            <option value="2023">2023</option>
+          {listaAnos.map(({ ano }) => (
+            <option key={ano} value={ano}>
+              {ano}
+            </option>
+          ))}
           </select>
       </div>
       <main className="flex flex-col gap-y-6 3xl:mb-14 mb-8">

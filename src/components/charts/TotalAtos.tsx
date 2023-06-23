@@ -44,7 +44,9 @@ export default function TotalAtos({ municipio, ano }: TotalAtosProps) {
           nomeacoes.push(0);
           exoneracoes.push(0);
         }
+        console.log(detalhe)
         Object.values(detalhe).forEach((elemento) => {
+          console.log(elemento)
           let nomeacao = elemento.resumo.num_nomeacoes;
           nomeacoes.push(nomeacao);
           let exoneracao = elemento.resumo.num_exoneracoes;
@@ -55,11 +57,10 @@ export default function TotalAtos({ municipio, ano }: TotalAtosProps) {
       });
   }
   function dadosAno() {
-    const url = `https://exoonero.org/data/${municipio}.json`;
+    const url = `https://alex-custodio.github.io/aff/data/${municipio}.json`;
     fetch(url, {})
       .then((res) => res.json())
       .then((data) => {
-
           const detalhe = ano in data.detalhe ? data.detalhe[ano] as Record<string, DetalheAno> : {};
           const nomeacoes: number[] = Array(12).fill(0);
           const exoneracoes: number[] = Array(12).fill(0);

@@ -1,16 +1,13 @@
 
+function generateAnos() {
+  const currentYear = new Date().getFullYear();
+  const anos = [];
+  for (let year = 2014; year <= currentYear; year++) {
+    anos.push({ ano: year.toString() });
+  }
+  return anos;
+}
 
-export const ano = [
-  {ano: "2014"},
-  {ano: "2015"},
-  {ano: "2016"},
-  {ano: "2017"},
-  {ano: "2018"},
-  {ano: "2019"},
-  {ano: "2020"},
-  {ano: "2021"},
-  {ano: "2022"},
-  {ano: "2023"},
-]
+export const ano = generateAnos()
 
 

@@ -10,24 +10,18 @@ interface Params {
   municipio: string;
   ano: string;
 }
+
 export async function generateStaticParams(): Promise<Params[]> {
   return ano;
 }
 
-interface AnoPageProps {
-  params: Params;
-}
-
-
-const AnoPage: React.FC<AnoPageProps> = ({ params }: {params: {municipio: string, ano: string}}) => {
-  
+const AnoPage: React.FC<{ params: Params }> = ({ params }) => {
+  const { municipio, ano } = params;
   return (
-    
     <main>
-      
           <MainLayout activeButton={"Home"}>
-            <Municipio municipioId={params.municipio} backActive={true} ano={params.ano}>
-              <TotalAtos municipio={params.municipio} ano={params.ano} />
+            <Municipio municipioId={municipio} backActive={true} ano={ano}>
+              <TotalAtos municipio={municipio} ano={ano} />
             </Municipio>
             <Footer />
           </MainLayout>
