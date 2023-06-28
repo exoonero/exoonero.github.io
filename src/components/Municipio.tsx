@@ -5,19 +5,42 @@ import { useRouter } from "next/navigation";
 import { If, Then } from "react-if";
 import Title from "./Title";
 import Charts from "./charts/Charts";
-
+import {ano} from "../app/[ano]/consts"
 interface MunicipioProps {
-  title: string;
+  municipioId: string;
   children: React.ReactNode;
   backActive?: boolean;
+  ano: string;
 }
 
+const listaAnos = ano
+
 export default function Municipio({
-  title,
+  municipioId,
   children,
   backActive,
+  ano
 }: MunicipioProps) {
   const router = useRouter();
+  const selecionarMunicipio = (e:any) => {
+    router.push(`/al/${e.target.value}`);
+  }
+  const selecionarAno = (e: any) => {
+    const valor = e.target.value;
+    if (backActive === false){
+      router.push(`/${valor}`);
+    } else if (backActive === true && municipioId === "geral" && valor !== "geral"){
+      router.push(`/${valor}`);
+    } else if (backActive === true && valor === "geral" && municipioId === "geral"){
+      router.push(`/`);
+    }
+    else if (backActive === true && municipioId !== "geral" && valor === "geral"){
+      router.push(`/al/${municipioId}/`);
+    } else {
+      router.push(`/al/${municipioId}/${valor}`);
+    }
+  }
+
   return (
     <main>
       <header className="flex gap-x-6 flex-row lg:flex-row gap-y-3 ">
@@ -31,7 +54,7 @@ export default function Municipio({
             </Link>
           </Then>
         </If>
-        <Title municipio={title}/>
+        <Title municipio={municipioId} ano={ano}/>
       </header>
       <div className="flex flex-col mt-5 mb-5">
         <p className="font-normal text-[#7C828A] 3xl:mx-auto 4xl:w-[59rem]">
@@ -45,9 +68,8 @@ export default function Municipio({
         <select
           className="w-[28.56rem] h-16 p-4 rounded-2xl text-lg"
           id="municipio-select"
-          onChange={(e) => {
-            router.push(`/al/${e.target.value}`);
-          }}
+          onChange={selecionarMunicipio}
+          value={municipioId}
         >
           <option value="geral" selected>
             Escolha uma cidade de Alagoas
@@ -151,6 +173,19 @@ export default function Municipio({
           <option value="traipu">Traipú</option>
           <option value="vicosa">Viçosa</option>
         </select>
+        <select
+          className="w-[28.56rem] h-16 p-4 rounded-2xl text-lg"
+          id="municipio-select" value={ano}
+          onChange={selecionarAno}>
+            <option value="geral">
+            Todos os anos
+            </option>
+          {listaAnos.map(({ ano }) => (
+            <option key={ano} value={ano}>
+              {ano}
+            </option>
+          ))}
+          </select>
       </div>
       <main className="flex flex-col gap-y-6 3xl:mb-14 mb-8">
         <Charts>
