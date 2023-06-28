@@ -27,8 +27,6 @@ export default function Municipio({
   }
   const selecionarAno = (e: any) => {
     const valor = e.target.value;
-    console.log(valor)
-    console.log(municipioId)
     if (backActive === false){
       router.push(`/${valor}`);
     } else if (backActive === true && municipioId === "geral" && valor !== "geral"){

@@ -44,9 +44,7 @@ export default function TotalAtos({ municipio, ano }: TotalAtosProps) {
           nomeacoes.push(0);
           exoneracoes.push(0);
         }
-        console.log(detalhe)
         Object.values(detalhe).forEach((elemento) => {
-          console.log(elemento)
           let nomeacao = elemento.resumo.num_nomeacoes;
           nomeacoes.push(nomeacao);
           let exoneracao = elemento.resumo.num_exoneracoes;
