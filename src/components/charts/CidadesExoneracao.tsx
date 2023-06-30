@@ -7,7 +7,7 @@ export default function CidadesExoneracao() {
   const [data, setData] = useState<any>(null);
 
   useEffect(() => {
-    fetch("https://exoonero.org/data/geral.json", {})
+    fetch("https://raw.githubusercontent.com/exoonero/extrator/main/docs/site/dados/geral.json", {})
       .then((res) => res.json())
       .then((data) => {
         setData(data);
