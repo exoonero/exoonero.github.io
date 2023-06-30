@@ -30,8 +30,8 @@ export default function TotalAtos({ municipio, ano }: TotalAtosProps) {
   function dadosGeraisAnos(){
     const url =
       municipio === "geral"
-        ? "https://exoonero.org/data/geral.json"
-        : `https://exoonero.org/data/${municipio}.json`;
+        ? "https://raw.githubusercontent.com/exoonero/extrator/main/docs/site/dados/geral.json"
+        : `https://raw.githubusercontent.com/exoonero/extrator/main/docs/site/dados/${municipio}.json`;
     
     fetch(url, {})
       .then((res) => res.json())
@@ -55,7 +55,7 @@ export default function TotalAtos({ municipio, ano }: TotalAtosProps) {
       });
   }
   function dadosAno() {
-    const url = `https://exoonero.org/data/${municipio}.json`;
+    const url = `https://raw.githubusercontent.com/exoonero/extrator/main/docs/site/dados/${municipio}.json`;
     fetch(url, {})
       .then((res) => res.json())
       .then((data) => {
