@@ -17,11 +17,7 @@ export default function Title({municipio, ano}: TitleProps) {
         )
         .then((data) => {
           const title = data.nome as string;
-          setTitleText(
-            title.replace(/\w\S*/g, function (txt) {
-              return txt.charAt(0).toUpperCase() + txt.substring(1).toLowerCase();
-            })
-          );
+          setTitleText(title);
         })
       }
         
