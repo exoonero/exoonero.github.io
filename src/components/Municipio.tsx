@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { If, Then } from "react-if";
 import Title from "./Title";
 import Charts from "./charts/Charts";
-import {anoSelect} from "../app/al/[municipio]/[ano]/anos"
+import { anoSelect } from "../app/al/[municipio]/[ano]/anos"
 import { useMemo } from "react";
 interface MunicipioProps {
   municipioId: string;
@@ -22,21 +22,21 @@ export default function Municipio({
   backActive,
   ano
 }: MunicipioProps) {
-  const listaAnos = useMemo(() => anoSelect, []); 
+  const listaAnos = useMemo(() => anoSelect, []);
   const router = useRouter();
-  const selecionarMunicipio = (e:any) => {
+  const selecionarMunicipio = (e: any) => {
     router.push(`/al/${e.target.value}`);
   }
   const selecionarAno = (e: any) => {
     const valor = e.target.value;
-    if (backActive === false){
+    if (backActive === false) {
       router.push(`/al/geral/${valor}`);
-    } else if (backActive === true && municipioId === "geral" && valor !== "geral"){
+    } else if (backActive === true && municipioId === "geral" && valor !== "geral") {
       router.push(`/al/geral/${valor}`);
-    } else if (backActive === true && valor === "geral" && municipioId === "geral"){
+    } else if (backActive === true && valor === "geral" && municipioId === "geral") {
       router.push(`/`);
     }
-    else if (backActive === true && municipioId !== "geral" && valor === "geral"){
+    else if (backActive === true && municipioId !== "geral" && valor === "geral") {
       router.push(`/al/${municipioId}/`);
     } else {
       router.push(`/al/${municipioId}/${valor}`);
@@ -56,7 +56,7 @@ export default function Municipio({
             </Link>
           </Then>
         </If>
-        <Title municipio={municipioId} ano={ano}/>
+        <Title municipio={municipioId} ano={ano} />
       </header>
       <div className="flex flex-col mt-5 mb-5">
         <p className="font-normal text-[#7C828A] 3xl:mx-auto 4xl:w-[59rem]">
@@ -179,15 +179,15 @@ export default function Municipio({
           className="w-[28.56rem] h-16 p-4 rounded-2xl text-lg"
           id="municipio-select" value={ano}
           onChange={selecionarAno}>
-            <option value="geral">
+          <option value="geral">
             Todos os anos
-            </option>
+          </option>
           {listaAnos.map(({ ano }) => (
             <option key={ano} value={ano}>
               {ano}
             </option>
           ))}
-          </select>
+        </select>
       </div>
       <main className="flex flex-col gap-y-6 3xl:mb-14 mb-8">
         <Charts>

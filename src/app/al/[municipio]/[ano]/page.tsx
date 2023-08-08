@@ -19,12 +19,12 @@ const AnoPage: React.FC<{ params: Params }> = ({ params }) => {
   const { municipio, ano } = params;
   return (
     <main>
-          <MainLayout activeButton={"Home"}>
-            <Municipio municipioId={municipio} backActive={true} ano={ano}>
-              <TotalAtos municipio={municipio} ano={ano} />
-            </Municipio>
-            <Footer />
-          </MainLayout>
+      <MainLayout activeButton={"Home"}>
+        <Municipio municipioId={municipio} backActive={true} ano={ano}>
+          <TotalAtos municipio={municipio} ano={ano} />
+        </Municipio>
+        <Footer />
+      </MainLayout>
     </main>
   );
 };
