@@ -5,7 +5,8 @@ import { useRouter } from "next/navigation";
 import { If, Then } from "react-if";
 import Title from "./Title";
 import Charts from "./charts/Charts";
-import {ano} from "../app/[ano]/consts"
+import {ano} from "../app/al/[municipio]/[ano]/consts"
+import {anoSelect} from "../app/al/[municipio]/[ano]/anos"
 interface MunicipioProps {
   municipioId: string;
   children: React.ReactNode;
@@ -13,7 +14,9 @@ interface MunicipioProps {
   ano: string;
 }
 
-const listaAnos = ano
+
+
+const listaAnos = anoSelect
 
 export default function Municipio({
   municipioId,
@@ -28,9 +31,9 @@ export default function Municipio({
   const selecionarAno = (e: any) => {
     const valor = e.target.value;
     if (backActive === false){
-      router.push(`/${valor}`);
+      router.push(`/al/geral/${valor}`);
     } else if (backActive === true && municipioId === "geral" && valor !== "geral"){
-      router.push(`/${valor}`);
+      router.push(`/al/geral/${valor}`);
     } else if (backActive === true && valor === "geral" && municipioId === "geral"){
       router.push(`/`);
     }

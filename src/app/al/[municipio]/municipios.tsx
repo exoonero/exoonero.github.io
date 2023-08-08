@@ -31,6 +31,7 @@ export const municipios =
         { municipio: 'feliz-deserto' },
         { municipio: 'flexeiras' },
         { municipio: 'girau-do-ponciano' },
+        {municipio: 'geral'},
     { municipio: 'ibateguara' },
     { municipio: 'igaci' },
     { municipio: 'igreja-nova' },
