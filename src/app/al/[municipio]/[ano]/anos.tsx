@@ -7,4 +7,4 @@ function generateAnos() {
     return anos;
   }
   
-export const anoSelect = generateAnos()
+export const anoSelect = generateAnos();

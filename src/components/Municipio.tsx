@@ -5,8 +5,8 @@ import { useRouter } from "next/navigation";
 import { If, Then } from "react-if";
 import Title from "./Title";
 import Charts from "./charts/Charts";
-import {ano} from "../app/al/[municipio]/[ano]/consts"
 import {anoSelect} from "../app/al/[municipio]/[ano]/anos"
+import { useMemo } from "react";
 interface MunicipioProps {
   municipioId: string;
   children: React.ReactNode;
@@ -16,14 +16,13 @@ interface MunicipioProps {
 
 
 
-const listaAnos = anoSelect
-
 export default function Municipio({
   municipioId,
   children,
   backActive,
   ano
 }: MunicipioProps) {
+  const listaAnos = useMemo(() => anoSelect, []); 
   const router = useRouter();
   const selecionarMunicipio = (e:any) => {
     router.push(`/al/${e.target.value}`);
