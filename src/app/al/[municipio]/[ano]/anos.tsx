@@ -1,4 +1,3 @@
-
 function generateAnos() {
   const currentYear = new Date().getFullYear();
   const anos = [];
@@ -8,6 +7,4 @@ function generateAnos() {
   return anos;
 }
 
-export const ano = generateAnos()
-
-
+export const anoSelect = generateAnos();

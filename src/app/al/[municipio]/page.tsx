@@ -18,15 +18,15 @@ interface MunicipioPageProps {
 }
 
 const MunicipioPage: React.FC<MunicipioPageProps> = ({ params }) => {
-  
+
   return (
     <main>
-          <MainLayout activeButton={"Home"}>
-            <Municipio municipioId={params.municipio} backActive={true} ano={'geral'}>
-              <TotalAtos municipio={params.municipio as string} ano={"todos"} />
-            </Municipio>
-            <Footer />
-          </MainLayout>
+      <MainLayout activeButton={"Home"}>
+        <Municipio municipioId={params.municipio} backActive={true} ano={'geral'}>
+          <TotalAtos municipio={params.municipio as string} ano={"todos"} />
+        </Municipio>
+        <Footer />
+      </MainLayout>
     </main>
   );
 };
