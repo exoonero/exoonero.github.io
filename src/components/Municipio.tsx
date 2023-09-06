@@ -66,9 +66,9 @@ export default function Municipio({
           ocorreram.
         </p>
       </div>
-      <div className="gap-x-5 gap-y-5 mx-[25%] flex flex-col xl:flex-row ">
+      <div className="gap-x-5 gap-y-5 md:mx-[25%] flex flex-col xl:flex-row ">
         <select
-          className="w-[28.56rem] h-16 p-4 rounded-2xl text-lg"
+          className="md:w-[28.56rem] h-16 md:p-4 rounded-2xl text-lg"
           id="municipio-select"
           onChange={selecionarMunicipio}
           value={municipioId}
@@ -176,7 +176,7 @@ export default function Municipio({
           <option value="vicosa">Viçosa</option>
         </select>
         <select
-          className="w-[28.56rem] h-16 p-4 rounded-2xl text-lg"
+          className="md:w-[28.56rem] h-16 p-4 rounded-2xl text-lg"
           id="municipio-select" value={ano}
           onChange={selecionarAno}>
           <option value="geral">
