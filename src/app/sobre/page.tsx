@@ -1,6 +1,7 @@
 import { LogoGreenExonera } from "@/assets/svgs/icons";
 import Footer from "@/components/Footer";
 import { MainLayout } from "@/layouts/MainLayout";
+import Link from "next/link";
 
 export default function Sobre() {
   return (
@@ -16,16 +17,16 @@ export default function Sobre() {
           <p className="font-normal ">
             Este projeto é financiado pelo{" "}
             <span className="underline decoration-solid">
-              Instituto Federal de Alagoas (IFAL)
+              <Link href="https://www2.ifal.edu.br/acesso-a-informacao/institucional">Instituto Federal de Alagoas (IFAL)</Link>
             </span>
             através do projeto de pesquisa PVA328-2022. Além do financiamento, o
             projeto conta com apoio da{" "}
             <span className="underline decoration-solid">
-              Open Knowledge Brasil (OKBR)
+              <Link href="https://ok.org.br/sobre/">Open Knowledge Brasil (OKBR)</Link> 
             </span>
             , no âmbito de uma parceria com foco no{" "}
             <span className="underline decoration-solid">
-              projeto Querido Diário.
+              <Link href="https://ok.org.br/projetos/querido-diario/">projeto Querido Diário.</Link> 
             </span>
           </p>
           <h3 className="font-bold">
@@ -94,16 +95,16 @@ export default function Sobre() {
           <p>
             Além destes, todo o código produzido é aberto e distribuído de forma
             livre no repositório
-            <a
-              href="https://github.com/danielfireman/ifal-qd"
+            <Link
+              href="https://github.com/exoonero/extrator"
               className="underline decoration-solid mx-1"
             >
-              danielfireman/ifal-qd
-            </a>
+              exoonero/extrator
+            </Link>
           </p>
         </section>
-        <div className="flex text-xs text-[#6C6C6C] gap-x-10 items-center">
-          <LogoGreenExonera className="scale-125 w-[12rem] 2xl:w-24 ml-6" />
+        <div className="flex flex-col md:flex-row text-xs text-[#6C6C6C] gap-x-10 items-center justify-center">
+          <LogoGreenExonera className="w-16 scale-125 md:ml-5 md:w-24 3xl:w-20" />
           <p>
             O nome do projeto “exoonero” nasce do trocadilho formado entre as
             palavras “Exo”, de exoneração, e “onero”, de algo que “onera” os
