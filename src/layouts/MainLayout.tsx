@@ -79,7 +79,7 @@ export function MainLayout({ children, activeButton }: MainLayoutProps) {
               </div>
             </div>
             <img
-              className="absolute 3xl:max-w-none lg:-bottom-[18rem] md:-bottom-[200rem] lg:scale-[.62] xl:-bottom-[19rem] 2xl:scale-[.68] min-[1920]:scale-[.95] 3xl:-bottom-[28rem] left-2 3xl:-left-[6rem]"
+              className="absolute hidden 2xl:block 3xl:max-w-none lg:-bottom-[18rem] md:-bottom-[200rem] lg:scale-[.62] xl:-bottom-[19rem] 2xl:scale-[.68] min-[1920]:scale-[.95] 3xl:-bottom-[28rem] left-2 3xl:-left-[6rem]"
               src="https://exoonero.org/girl-icon.png"
             />
           </aside>
